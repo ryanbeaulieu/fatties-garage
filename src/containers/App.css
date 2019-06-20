@@ -1,0 +1,4 @@
+.merchandise-grid {
+    display: flex;
+    align-items: flex-start;
+}
