@@ -1,4 +1,12 @@
 .merchandise-grid {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
 }

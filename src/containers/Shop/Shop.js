@@ -20,12 +20,33 @@ class Shop extends Component {
         merchandise: products.products
       })
     })
+    .then(() => {
+      const targets = document.querySelectorAll('img[data-src]');
+
+      const lazyLoad = target => {
+        const io = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting) {
+              const img = entry.target;
+              const src = img.getAttribute("data-src");
+              img.src = src;
+              // img.classList.add("loaded");
+  
+              observer.disconnect();
+            }
+          });
+        });
+
+        io.observe(target);
+      };
+      targets.forEach(lazyLoad);
+    })
   }
 
   render(props) {
     return (
         <div>
-        {this.state.merchandise.length === 0 ? "LOADING" : null}
+        {/* {this.state.merchandise.length === 0 ? "LOADING" : null} */}
         <div className="merchandise-grid">
           {
             this.state.merchandise.map(item =>{

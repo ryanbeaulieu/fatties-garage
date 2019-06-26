@@ -6,7 +6,7 @@
 }
 
 .Header img#brand-logo {
-    width: 300px;
+    width: 200px;
     grid-column: 1;
     justify-self: flex-start;
 }
@@ -22,9 +22,35 @@
 .Header nav a {
     margin-left: 1rem;
     font-size: 1rem;
+    position: relative;
+    text-decoration: none;
+    padding: 1rem;
+    color: #000;
 }
 
-.Header nav a.active {
-    font-weight: 600;
-    color: pink;
+.Header nav a.active::after {
+   content: "";
+   position: absolute;
+   display: flex;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 3px;
+   background: #d60e1e;
+   transform-origin: center;
+   transform: scale(0);
+   animation-name: activeMenu;
+   animation-duration: 0.2s;
+   animation-timing-function: ease-out;
+   animation-fill-mode: forwards;
+}
+
+@keyframes activeMenu {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
 }

@@ -1,11 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Card.css'
 
 const card = props => {
+
     return (
         <div className="Card">
             <div className={props.details.outOfStock ? "soldout image-container" : "image-container"}>
-                <img src={props.details.productImages[0]} alt={props.details.name} />
+                <Link to={'/product/' + props.details._id}><img data-src={props.details.productImages[0]} alt={props.details.name} /></Link>
             </div>
             <div className="details-container">
             <p className="card-title" title={props.details.name}>{props.details.name}</p>

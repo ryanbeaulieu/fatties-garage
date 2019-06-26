@@ -4,17 +4,28 @@
     width: 225px;
     margin: 20px;
     overflow: hidden;
-    display: inline-block;
+    display: block;
+    flex-shrink: 0;
 }
 
 .Card .image-container {
     height: 225px;
     position: relative;
+    background-color: #fff;
 }
 
 .Card img {
     height:  225px;
     width: 100%;
+    /* opacity: 0;
+    transform: translatex(25%);
+    transition: opacity 0.3s ease-out, transform 0.5s ease-out; */
+}
+
+.Card img.loaded {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease-out, transform 0.5s ease-out;
 }
 
 .Card .details-container {
@@ -53,7 +64,7 @@
   
  .Card .soldout::before {
     content: "Sold Out";
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.5rem;
     text-transform: uppercase;
     position: absolute;

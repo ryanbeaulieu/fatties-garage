@@ -1,8 +1,11 @@
 import React,{Component} from 'react';
 import Header from '../components/Header/Header';
-import Card from '../components/Card/Card';
 import {Route} from 'react-router-dom';
 import Shop from './Shop/Shop';
+import Home from './Home/Home';
+import Contact from './Contact/Contact';
+import NotFound from './NotFound/NotFound';
+import ViewProduct from './ViewProduct/ViewProduct';
 import './App.css';
 // import Person from './Person/Person';
 // import Thermometer from './Thermometer/Thermometer'
@@ -19,9 +22,14 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Route path="/" exact component={Shop} />
-        <Route path="/shop" exact component={Shop} />
-        <Route path="/contact" exact component={Shop} />
+        <div className="page-container">
+          <Route path="/" exact component={Home} />
+          <Route path="/shop" exact component={Shop} />
+          <Route path="/contact" exact component={Contact} />
+          <Route path="/product/:id" exact component={ViewProduct} />
+        </div>
+        
+        {/* <Route path='*' exact component={NotFound} /> */}
       </div>
     );
   }
