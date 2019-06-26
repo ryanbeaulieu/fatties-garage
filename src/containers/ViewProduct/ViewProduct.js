@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import ProductImages from '../../components/ProductImages/ProductImages'; 
 
 
 class ViewProduct extends Component {
@@ -18,23 +18,23 @@ class ViewProduct extends Component {
       this.setState({
         product: product.product
       })
-
-      console.log(this.state.product.productImages[0]);
     })
   }
 
   render(props) {
     return (
-        <div>
-            {this.state.product.name}
-            {this.state.product.category}
-            {this.state.product.price}
-            {this.state.product.salePrice ? this.state.product.salePrice : null}
-            {this.state.product.productImages ? this.state.product.productImages.map(img => {
-                return (
-                    <img src={'http://localhost:3000/uploads/' + img} key={img} />
-                )
-            }) : null}
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
+            <ProductImages images={this.state.product.productImages ? this.state.product.productImages : null }></ProductImages>
+            </div>
+            <div className="col-md-8">
+              {this.state.product.name}
+              {this.state.product.category}
+              {this.state.product.price}
+              {this.state.product.salePrice ? this.state.product.salePrice : null}
+            </div>
+          </div>           
         </div>
         
     );
