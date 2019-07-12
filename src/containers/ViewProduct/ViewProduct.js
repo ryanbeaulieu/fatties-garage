@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import ProductImages from '../../components/ProductImages/ProductImages'; 
 
 
@@ -15,9 +16,17 @@ class ViewProduct extends Component {
       return response.json();
     })
     .then(product => {
+      if(product.error) {
+        this.props.history.push('/404');
+        return;
+      }
+
       this.setState({
         product: product.product
       })
+    })
+    .catch(err => {
+      console.log("Errors", err)
     })
   }
 
@@ -41,4 +50,4 @@ class ViewProduct extends Component {
   }
 }
 
-export default ViewProduct;
+export default withRouter(ViewProduct);

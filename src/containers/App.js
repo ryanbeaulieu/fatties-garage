@@ -27,6 +27,7 @@ class App extends Component {
           <Route path="/shop" exact component={Shop} />
           <Route path="/contact" exact component={Contact} />
           <Route path="/product/:id" exact component={ViewProduct} />
+          <Route path='/404' exact component={NotFound} />
         </div>
         
         {/* <Route path='*' exact component={NotFound} /> */}

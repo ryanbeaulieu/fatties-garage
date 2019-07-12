@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Grid from '@material-ui/core/Grid';
 import Card from '../../components/Card/Card';
 
 
@@ -47,15 +48,17 @@ class Shop extends Component {
     return (
         <div>
         {/* {this.state.merchandise.length === 0 ? "LOADING" : null} */}
-        <div className="merchandise-grid">
+        <Grid container spacing={3}>
           {
-            this.state.merchandise.map(item =>{
+            this.state.merchandise.map((item, idx) =>{
               return (
-                <Card details={item} key={item._id} />
+                <Grid item xs={6} md={4} lg={3} key={item._id}>
+                  <Card details={item}  idx={idx} />
+                </Grid>
               )
             })
           }
-        </div>
+        </Grid>
         </div>
         
     );
