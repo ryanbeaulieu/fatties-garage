@@ -1,0 +1,28 @@
+.logo {
+    height: 75px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-block: 1.25rem;
+}
+
+.header nav {
+    display: flex;
+    grid-gap: 1.5rem;
+    font-size: 1.125rem;
+    letter-spacing: 0.375px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: unset
+}
